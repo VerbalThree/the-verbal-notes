@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import Link from "next/link";
 import matter from "gray-matter";
 import fs from "fs";
@@ -8,14 +7,18 @@ export default async function Home(){
   const posts = await getPosts();
 
   return (
-    <div>
+    <div className="flex justify-center">
+    <div className="grid grid-cols-2 space-x-4">
+      
       {posts.map(({slug, frontMatter: {title, description}}) => (
         <Link key={slug} href={`/blog/${slug}`} passHref>
-            <h5>{title}</h5>
-            <p>{description}</p>
-            <hr />
+          <div className="boxes">
+            <h5 className="text-2xl text-left mt-4 mb-4 ml-4">{title}</h5>
+            <p className="text-sm text-left ml-4">{description}</p>
+          </div>
         </Link>
       ))}
+    </div>
     </div>
   )
 }

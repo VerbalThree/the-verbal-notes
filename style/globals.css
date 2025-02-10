@@ -11,3 +11,29 @@ html, body {
   background-color: #000000;
   color: #FFFFFF;
 }
+
+.dotted {
+  border-style: none;
+    width: 100%;
+    height: 16px;
+    line-height: 1rem;
+    overflow: hidden;
+    margin-top: -10px;
+    margin-bottom: 24px;
+    position: relative;
+}
+
+.dotted::before{
+  content: "................................................................................................................................................................";
+  position: absolute;
+  left: 0;
+  right: 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.boxes {
+  border: 2px dashed white;
+  margin: 0 auto;
+  position: relative;
+}
