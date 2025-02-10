@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --text-primary: (#FFFFFF);
+  --border-primary: (#FFFFFF);
+}
+
+html, body {
+  background-color: #000000;
+  color: #FFFFFF;
+}
