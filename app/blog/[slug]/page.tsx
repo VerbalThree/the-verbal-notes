@@ -32,7 +32,7 @@ export async function generateMetadata(props: BlogPostProps){
         const { data: frontMatter } = matter(markdownWithMeta);
         return { title: frontMatter.title };
     } catch (error) {
-        return { title: "Página não encontrada"};
+        return { title: "Ow snap!"};
     }
 }
 
@@ -48,7 +48,7 @@ export default async function BlogPost(props: BlogPostProps){
         return (
         <div>
             <Link href="/">
-                <button>Voltar</button>
+                <button>Homepage</button>
             </Link>
 
             <div className="prose prose-sm sm:prose lg:prose-lg mx-auto prose-slate">
@@ -58,7 +58,14 @@ export default async function BlogPost(props: BlogPostProps){
             </div>
         </div>
     )} catch (error){
-        return <div>Página não encontrada</div>
-    };
+        
+        return (
+            <>
+        <div>Ow snap! This page has not been found...</div>
+        <Link href="/">
+            Come back to the homepage
+        </Link>
+        </>
+    )};
     }
 
