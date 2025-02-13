@@ -4,6 +4,7 @@ import path from "path";
 import matter from "gray-matter";
 import {marked} from "marked";
 import Link from "next/link";
+import NextBreadcrumb from "@/components/breadcrumbs";
 
 interface BlogPostProps {
     params: { slug: string };
@@ -47,25 +48,38 @@ export default async function BlogPost(props: BlogPostProps){
         const { data: frontMatter, content } = matter(markdownWithMeta);
         return (
         <div>
-            <Link href="/">
-                <button>Homepage</button>
-            </Link>
-
-            <div className="prose prose-sm sm:prose lg:prose-lg mx-auto prose-slate">
-                <img src={frontMatter.thumbnail} alt={frontMatter.title}/>
-                <h1>{frontMatter.title}</h1>
-                <div dangerouslySetInnerHTML={{__html: marked(content) }}></div>
+        <main className="main">
+        <article className="">
+            <div className="relative bottom-[1rem]">
+                <NextBreadcrumb
+                homeElement={'Home'}
+                separator={<span> / </span>}
+                activeClasses="text-amber-500"
+                containerClasses="flex py-5 bg-gradient-to-r from-purple-600 to-blue-600"
+                listClasses="hover:underline mx-2 font-bold"
+                capitalizeLinks
+                />
             </div>
+                <header className="header">
+                <h1 className="flex justify-center items-center">{frontMatter.title}</h1>
+                </header>
+                <figure className="cover">
+                <img src={frontMatter.thumbnail} alt={frontMatter.title} className="flex justify-center items-center"/>
+                </figure>
+                <div dangerouslySetInnerHTML={{__html: marked(content) }} className="justify-center items-center" id="content"></div>
+            
+        </article>
+        </main>
         </div>
     )} catch (error){
         
         return (
-            <>
-        <div>Ow snap! This page has not been found...</div>
-        <Link href="/">
-            Come back to the homepage
+            <div>
+        <div className="flex justify-center items-center mb-4"><h1 className="">Ow snap! This page has <b className="error">not been found...</b></h1></div>
+        <Link href="/" className="flex justify-center items-center">
+            <h1 className="bg-purple-800">[Come back to the homepage]</h1>
         </Link>
-        </>
+        </div>
     )};
     }
 

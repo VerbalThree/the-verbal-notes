@@ -47,10 +47,10 @@ export default function RootLayout({
             {title_mobile}
           </pre>
         </h1>
-        <h6 className="w-2xs" id="sub">[get the source code] - v1.0.0</h6>
+        <h6 className="w-2xs" id="sub"><b className="source">[get the source code]</b> - v1.0.0</h6>
         </div>
         {children}
-        <h6 className="flex justify-center items-center mt-[1rem] mb-[1rem]">since 2025</h6>
+        <h6 className="flex justify-center items-center mt-[1rem] mb-[1rem]">since 2025, created by verbal</h6>
       </body>
     </html>
   );
