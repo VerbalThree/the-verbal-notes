@@ -24,8 +24,7 @@ export async function generateStaticParams() {
 // função para buscar os dados antes de renderizar a página
 export async function generateMetadata(props: BlogPostProps){
     // extraindo params
-    const params = await Promise.resolve(props.params);
-    const slug = params.slug;
+    const slug = props.params;
     const filePath = path.join(process.cwd(), "posts", `${slug}.md`);
     
     try {
@@ -34,7 +33,7 @@ export async function generateMetadata(props: BlogPostProps){
         return { title: frontMatter.title };
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
-        return { title: "Ow snap!"};
+        return { title: "the verbal notes"};
     }
 }
 
