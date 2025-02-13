@@ -7,18 +7,16 @@ export default async function Home(){
   const posts = await getPosts();
 
   return (
-    <div className="flex justify-center">
-    <div className="grid grid-cols-2 space-x-4">
+    <div className="grid grid-cols-1">
       
       {posts.map(({slug, frontMatter: {title, description}}) => (
-        <Link key={slug} href={`/blog/${slug}`} passHref>
-          <div className="boxes">
+        <Link className="mx-1 my-1" key={slug} href={`/${slug}`} passHref>
+          <div className="boxes w-80 h-28 md:w-[45rem] md:h-[10rem]">
             <h5 className="text-2xl text-left mt-4 mb-4 ml-4">{title}</h5>
-            <p className="text-sm text-left ml-4">{description}</p>
+            <p className="text-sm text-left ml-4 relative bottom-[1rem]">{description}</p>
           </div>
         </Link>
       ))}
-    </div>
     </div>
   )
 }

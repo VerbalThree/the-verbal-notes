@@ -5,11 +5,17 @@
 :root {
   --text-primary: (#FFFFFF);
   --border-primary: (#FFFFFF);
+  --header-height:  60px;
+  --footer-height: 60px;
+  --main-width: 720px;
+  --gap: 24px;
+  --content-gap: 20px;
 }
 
 html, body {
   background-color: #000000;
   color: #FFFFFF;
+  font-size: 14px;
 }
 
 .dotted {
@@ -36,4 +42,38 @@ html, body {
   border: 2px dashed white;
   margin: 0 auto;
   position: relative;
+}
+
+.main {
+  position: relative;
+  min-height: calc(100vh - var(--header-height) - var(--footer-height));
+  max-width: calc(var(--main-width) + var(--gap) * 2);
+  margin: auto;
+  padding: var(--gap);
+}
+
+.header {
+  margin: 4px auto var(--content-gap);
+}
+
+.header h1 {
+  font-size: 24px;
+}
+
+.cover {
+  margin-bottom: var(--gap);
+  text-align: center;
+}
+
+#content p, #content h1, #content ul, #content ol {
+  margin-bottom: var(--content-gap);
+}
+
+.error {
+  box-shadow: 3px 3px red;
+  background: rgb(53, 53, 53);
+}
+
+.source {
+  background-color: darkblue;
 }

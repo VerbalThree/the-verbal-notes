@@ -23,18 +23,34 @@ export default function RootLayout({
 |  _|   | -_|  | | | -_|  _| . | .'| |  |   | . |  _| -_|_ -|
 |_| |_|_|___|   \_/|___|_| |___|__,|_|  |_|_|___|_| |___|___|
         `;
+  
+  const title_mobile = String.raw`               
+  _/_/_ _     _  _/_ _  /
+  / / //_' |//_'//_//_|/ 
+   _  _ _/__   _         
+  / //_// /_'_\          
+  `;
 
   return (
-    <html lang="en">
+    <html className="overflow-x-hidden lg:overflow-auto" lang="en">
+      <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      </head>
       <body
         className={primary_font.className}>
-        <h1 className="text-left m-4">
-          <pre>
+        <div className="mt-[5px] ml-[1rem] mr-[1rem] mb-[2rem]">
+        <h1 className="w-[34rem]"> {/*text-left m-4 float-left */}
+          <pre className="hidden sm:block" id="pre">
             {title}
           </pre>
+          <pre className="w-[14rem] sm:hidden">
+            {title_mobile}
+          </pre>
         </h1>
-        <hr className="dotted"></hr>
+        <h6 className="w-2xs" id="sub"><b className="source">[get the source code]</b> - v1.0.0</h6>
+        </div>
         {children}
+        <h6 className="flex justify-center items-center mt-[1rem] mb-[1rem]">since 2025, created by verbal</h6>
       </body>
     </html>
   );
