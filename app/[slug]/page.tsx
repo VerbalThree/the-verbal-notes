@@ -32,6 +32,7 @@ export async function generateMetadata(props: BlogPostProps){
         const markdownWithMeta = await fs.readFile(filePath, "utf-8");
         const { data: frontMatter } = matter(markdownWithMeta);
         return { title: frontMatter.title };
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
         return { title: "Ow snap!"};
     }
@@ -64,13 +65,14 @@ export default async function BlogPost(props: BlogPostProps){
                 <h1 className="flex justify-center items-center">{frontMatter.title}</h1>
                 </header>
                 <figure className="cover">
-                <img src={frontMatter.thumbnail} alt={frontMatter.title} className="flex justify-center items-center"/>
+                {/* <Image src={frontMatter.thumbnail} alt={frontMatter.title} className="flex justify-center items-center"/> */}
                 </figure>
                 <div dangerouslySetInnerHTML={{__html: marked(content) }} className="justify-center items-center" id="content"></div>
             
         </article>
         </main>
         </div>
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     )} catch (error){
         
         return (
