@@ -6,9 +6,15 @@ import {marked} from "marked";
 import Link from "next/link";
 import NextBreadcrumb from "@/components/breadcrumbs";
 
-interface BlogPostProps {
-    params: { slug: string };
+interface Params {
+    slug: string;
 }
+
+interface BlogPostProps {
+    params: Params;
+}
+
+export const dynamicParams = false; // Prevent dynamic route generation for non-static slugs
 
 export async function generateStaticParams() {
     const postsDir = path.join(process.cwd(), "posts");
@@ -22,9 +28,9 @@ export async function generateStaticParams() {
 }
 
 // função para buscar os dados antes de renderizar a página
-export async function generateMetadata(props: BlogPostProps){
+export async function generateMetadata({ params }: { params: Params}){
     // extraindo params
-    const slug = props.params;
+    const { slug } = params;
     const filePath = path.join(process.cwd(), "posts", `${slug}.md`);
     
     try {
@@ -33,14 +39,13 @@ export async function generateMetadata(props: BlogPostProps){
         return { title: frontMatter.title };
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
-        return { title: "the verbal notes"};
+        return { title: frontMatter.title };
     }
 }
 
-export default async function BlogPost(props: BlogPostProps){  
+export default async function BlogPost({params}: { params: Params}){  
     // extraindo params
-    const params = await Promise.resolve(props.params);
-    const slug = params.slug;
+    const {slug}= params;
     const filePath = path.join(process.cwd(), "posts", `${slug}.md`);
 
     try {

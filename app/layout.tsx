@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Courier_Prime } from "next/font/google";
 import "@/style/globals.css";
+import Link from "next/link";
 
 const primary_font = Courier_Prime({
     weight: "400",
@@ -39,6 +40,7 @@ export default function RootLayout({
       <body
         className={primary_font.className}>
         <div className="mt-[5px] ml-[1rem] mr-[1rem] mb-[2rem]">
+        <Link href="/">
         <h1 className="w-[34rem]"> {/*text-left m-4 float-left */}
           <pre className="hidden sm:block" id="pre">
             {title}
@@ -47,7 +49,9 @@ export default function RootLayout({
             {title_mobile}
           </pre>
         </h1>
-        <h6 className="w-2xs" id="sub"><b className="source">[get the source code]</b> - v1.0.0</h6>
+        </Link>
+        <Link href="https://github.com/VerbalThree/verbal-notes">
+        <h6 className="w-2xs" id="sub"><b className="source">[get the source code]</b> - v1.0.0</h6></Link>
         </div>
         {children}
         <h6 className="flex justify-center items-center mt-[1rem] mb-[1rem]">since 2025, created by verbal</h6>
