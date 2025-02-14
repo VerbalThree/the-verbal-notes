@@ -69,6 +69,16 @@ html, body {
   margin-bottom: var(--content-gap);
 }
 
+#content a {
+  text-decoration: underline dotted;
+  text-decoration-thickness: 1.5px;
+  color: aqua;
+}
+
+#content a:hover {
+  color: #4545c8;
+}
+
 .error {
   box-shadow: 3px 3px red;
   background: rgb(53, 53, 53);
@@ -76,4 +86,21 @@ html, body {
 
 .source {
   background-color: darkblue;
+}
+
+#posts-blocks:hover{
+  color: #4545c8;
+  border: 2px dashed #4545c8;
+}
+
+#pre:hover {
+  color: aqua;
+}
+
+.verbal {
+  padding-left: 10px;
+}
+
+.verbal:hover {
+  color: aqua;
 }

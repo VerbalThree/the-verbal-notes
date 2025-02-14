@@ -45,7 +45,7 @@ export default function RootLayout({
           <pre className="hidden sm:block" id="pre">
             {title}
           </pre>
-          <pre className="w-[14rem] sm:hidden">
+          <pre className="w-[14rem] sm:hidden" id="pre">
             {title_mobile}
           </pre>
         </h1>
@@ -54,7 +54,7 @@ export default function RootLayout({
         <h6 className="w-2xs" id="sub"><b className="source">[get the source code]</b> - v1.0.0</h6></Link>
         </div>
         {children}
-        <h6 className="flex justify-center items-center mt-[1rem] mb-[1rem]">since 2025, created by verbal</h6>
+        <h6 className="flex justify-center items-center mt-[1rem] mb-[1rem]">since 2025, created by <Link href="https://github.com/VerbalThree" className="verbal"> verbal</Link></h6>
       </body>
     </html>
   );
