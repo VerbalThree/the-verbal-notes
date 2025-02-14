@@ -10,11 +10,6 @@ interface Params {
     slug: string;
 }
 
-interface BlogPostProps {
-    params: Params;
-}
-
-export const dynamicParams = false; // Prevent dynamic route generation for non-static slugs
 
 export async function generateStaticParams() {
     const postsDir = path.join(process.cwd(), "posts");
@@ -28,22 +23,25 @@ export async function generateStaticParams() {
 }
 
 // função para buscar os dados antes de renderizar a página
-export async function generateMetadata({ params }: { params: Params}){
+export async function generateMetadata(props: { params: Promise<Params>}) {
+    const params = await props.params;
     // extraindo params
     const { slug } = params;
     const filePath = path.join(process.cwd(), "posts", `${slug}.md`);
-    
+
     try {
         const markdownWithMeta = await fs.readFile(filePath, "utf-8");
         const { data: frontMatter } = matter(markdownWithMeta);
         return { title: frontMatter.title };
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    } catch (error) {
+    } catch  {
+        const markdownWithMeta = await fs.readFile(filePath, "utf-8");
+        const { data: frontMatter } = matter(markdownWithMeta);
         return { title: frontMatter.title };
     }
 }
 
-export default async function BlogPost({params}: { params: Params}){  
+export default async function BlogPost(props: { params: Promise<Params>}) {
+    const params = await props.params;
     // extraindo params
     const {slug}= params;
     const filePath = path.join(process.cwd(), "posts", `${slug}.md`);
@@ -52,32 +50,31 @@ export default async function BlogPost({params}: { params: Params}){
         const markdownWithMeta = await fs.readFile(filePath, "utf-8");
         const { data: frontMatter, content } = matter(markdownWithMeta);
         return (
-        <div>
-        <main className="main">
-        <article className="">
-            <div className="relative bottom-[1rem]">
-                <NextBreadcrumb
-                homeElement={'Home'}
-                separator={<span> / </span>}
-                activeClasses="text-amber-500"
-                containerClasses="flex py-5 bg-gradient-to-r from-purple-600 to-blue-600"
-                listClasses="hover:underline mx-2 font-bold"
-                capitalizeLinks
-                />
-            </div>
-                <header className="header">
-                <h1 className="flex justify-center items-center">{frontMatter.title}</h1>
-                </header>
-                <figure className="cover">
-                {/* <Image src={frontMatter.thumbnail} alt={frontMatter.title} className="flex justify-center items-center"/> */}
-                </figure>
-                <div dangerouslySetInnerHTML={{__html: marked(content) }} className="justify-center items-center" id="content"></div>
-            
-        </article>
-        </main>
-        </div>
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    )} catch (error){
+            (<div>
+                <main className="main">
+                <article className="">
+                    <div className="relative bottom-[1rem]">
+                        <NextBreadcrumb
+                        homeElement={'Home'}
+                        separator={<span> / </span>}
+                        activeClasses="text-amber-500"
+                        containerClasses="flex py-5 bg-gradient-to-r from-purple-600 to-blue-600"
+                        listClasses="hover:underline mx-2 font-bold"
+                        capitalizeLinks
+                        />
+                    </div>
+                        <header className="header">
+                        <h1 className="flex justify-center items-center">{frontMatter.title}</h1>
+                        </header>
+                        <figure className="cover">
+                        {/* <Image src={frontMatter.thumbnail} alt={frontMatter.title} className="flex justify-center items-center"/> */}
+                        </figure>
+                        <div dangerouslySetInnerHTML={{__html: marked(content) }} className="justify-center items-center" id="content"></div>
+                    
+                </article>
+                </main>
+            </div>)
+        );} catch {
         
         return (
             <div>
@@ -86,6 +83,6 @@ export default async function BlogPost({params}: { params: Params}){
             <h1 className="bg-purple-800">[Come back to the homepage]</h1>
         </Link>
         </div>
-    )};
-    }
+    )}
+}
 
