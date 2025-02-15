@@ -12,4 +12,4 @@ export default function Custom500() {
       </Link>
       </div>
     )
-  }
+  }                  

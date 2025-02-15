@@ -30,6 +30,7 @@ async function getPosts() {
   const posts = files.filter(filename => filename.endsWith(".md")).map((filename) => {
     const slug = filename.replace(".md", "");
     const markdownWithMeta = fs.readFileSync(path.join("posts", filename), "utf-8");
+    if (!markdownWithMeta) throw new PostRequired()
     const { data: frontMatter } = matter(markdownWithMeta);
 
     return { slug, frontMatter };
