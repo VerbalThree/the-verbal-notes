@@ -72,6 +72,7 @@ html, body {
 #content a {
   text-decoration: underline dotted;
   text-decoration-thickness: 1.5px;
+  font-weight: bold;
   color: aqua;
 }
 
