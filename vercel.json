@@ -1,12 +1,12 @@
 {
     "routes": [
       {
-        "src": "/app",
+        "src": "/500",
         "dest": "/500.js",
         "status": 500
       },
       {
-        "src": "/app",
+        "src": "/400",
         "dest": "/400.js",
         "status": 400
       }
