@@ -41,7 +41,7 @@ export default function RootLayout({
         className={primary_font.className}>
         <div className="mt-[5px] ml-[1rem] mr-[1rem] mb-[2rem]">
         <Link href="/">
-        <h1 className="w-[34rem]"> {/*text-left m-4 float-left */}
+        <h1 className="w-[34rem]">
           <pre className="hidden sm:block" id="pre">
             {title}
           </pre>

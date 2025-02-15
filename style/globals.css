@@ -89,6 +89,10 @@ html, body {
   background-color: darkblue;
 }
 
+.source:hover {
+  color: aqua;
+}
+
 #posts-blocks:hover{
   color: #4545c8;
   border: 2px dashed #4545c8;
@@ -103,5 +107,9 @@ html, body {
 }
 
 .verbal:hover {
+  color: aqua;
+}
+
+#homepage-error:hover {
   color: aqua;
 }
