@@ -11,12 +11,14 @@ export default async function Home(){
     <div className="grid grid-cols-1">
       
       {posts.map(({slug, frontMatter: {title, description}}) => (
-        <Link className="mx-1 my-1" key={slug} href={`/${slug}`} passHref>
-          <div className="boxes w-80 h-28 md:w-[45rem] md:h-[10rem]" id="posts-blocks">
+        <div className="flex justify-center items-center" key={slug}>
+        <Link className="mx-1 my-1 p-[4px] md:p-[0px]" href={`/${slug}`} passHref>
+          <div className="boxes w-[24rem] h-28 md:w-[45rem] md:h-[10rem]" id="posts-blocks">
             <h5 className="text-2xl text-left mt-4 mb-4 ml-4">{title}</h5>
             <p className="text-sm text-left ml-4 relative bottom-[1rem]">{description}</p>
           </div>
         </Link>
+        </div>
       ))}
     </div>
   )

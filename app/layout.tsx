@@ -39,9 +39,11 @@ export default function RootLayout({
       </head>
       <body
         className={primary_font.className}>
+          
         <div className="mt-[5px] ml-[1rem] mr-[1rem] mb-[2rem]">
+          <div className="w-[14.3em] md:w-[34.7em]">
         <Link href="/">
-        <h1 className="w-[34rem]">
+        <h1 className="w-[13.3em] md:w-[34rem]">
           <pre className="hidden sm:block" id="pre">
             {title}
           </pre>
@@ -50,9 +52,15 @@ export default function RootLayout({
           </pre>
         </h1>
         </Link>
-        <Link href="https://github.com/VerbalThree/verbal-notes">
-        <h6 className="w-2xs" id="sub"><b className="source">[get the source code]</b> - v1.0.0</h6></Link>
         </div>
+        <div className="w-xl">
+        
+        <h6 className="w-2xs" id="sub"><Link href="https://github.com/VerbalThree/verbal-notes"><b className="source">[get the source code]</b></Link> - v1.0.1</h6>
+
+
+        </div>
+        </div>
+        
         {children}
         <h6 className="flex justify-center items-center mt-[1rem] mb-[1rem]">since 2025, created by <Link href="https://github.com/VerbalThree" className="verbal"> verbal</Link></h6>
       </body>

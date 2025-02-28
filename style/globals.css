@@ -69,6 +69,11 @@ html, body {
   margin-bottom: var(--content-gap);
 }
 
+#content li {
+  margin-left: 20px;
+  list-style: disclosure-closed;
+}
+
 #content a {
   text-decoration: underline dotted;
   text-decoration-thickness: 1.5px;
