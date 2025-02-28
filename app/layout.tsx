@@ -55,7 +55,7 @@ export default function RootLayout({
         </div>
         <div className="w-xl">
         
-        <h6 className="w-2xs" id="sub"><Link href="https://github.com/VerbalThree/verbal-notes"><b className="source">[get the source code]</b></Link> - v1.0.1</h6>
+        <h6 className="w-2xs" id="sub"><Link href="https://github.com/VerbalThree/verbal-notes"><b className="source">[get the source code]</b></Link> - v1.0.2</h6>
 
 
         </div>
