@@ -31,9 +31,6 @@ jobs:
       - name: Build Project
         run: pnpm run build
 
-      - name: Job Completed!
-        run: echo "This job has been completed!"
-
   Deploy-Production:
     needs: build
     runs-on: ubuntu-latest
@@ -55,6 +52,3 @@ jobs:
       
       - name: Deploy Project Artifacts to Vercel
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
-
-      - name: Job Completed!
-        run: echo "This job has been completed!"
