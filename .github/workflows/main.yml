@@ -27,15 +27,15 @@ jobs:
       - name: Build Project
         run: npm run build
 
-deploy:
-  needs: build-and-test
-  runs-on: ubuntu-latest
-  steps:
-    - name: Checkout Code
-    - uses: actions/checkout@v4
-
-    - name: Deploy to Vercel
-      uses: vercel/checkout@v4
-      with:
-        vercel-token: ${{ secrets.VERCEL_TOKEN }}
-        vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+  deploy:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+      - uses: actions/checkout@v4
+  
+      - name: Deploy to Vercel
+        uses: vercel/action@v28
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
