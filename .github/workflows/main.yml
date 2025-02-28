@@ -38,6 +38,9 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Install pnpm
+        run: npm install - pnpm
+      
       - name: Checkout Code
         uses: actions/checkout@v4
 
