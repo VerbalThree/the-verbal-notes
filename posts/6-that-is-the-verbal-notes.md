@@ -1,6 +1,6 @@
 ---
 title: 'That is the Verbal Notes'
-date: '02-12-25T08:41'
+date: '02-12-25 - 08:41AM'
 description: 'My first blog'
 ---
 

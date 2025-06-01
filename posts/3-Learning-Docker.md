@@ -1,6 +1,6 @@
 ---
 title: 'Learning Docker (Part 1)'
-date: '02-27-25T14:50'
+date: '02-27-25 - 14:50PM'
 description: 'Today im starting to learn Docker'
 ---
 

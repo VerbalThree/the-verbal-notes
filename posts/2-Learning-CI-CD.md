@@ -1,6 +1,6 @@
 ---
 title: 'Learning CI/CD'
-date: '02-28-25T10:40'
+date: '02-28-25 - 10:40AM'
 description: 'Im kind of understanding CI/CD now...'
 ---
 
@@ -73,13 +73,16 @@ Deploy-Production:<br>
         run: npm install --global vercel@latest
 
       - name: Pull Vercel Environment Information
-        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel pull --yes --environment=production 
+          --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Build Project Artifacts
-        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel build --prod 
+          --token=${{ secrets.VERCEL_TOKEN }}
       
       - name: Deploy Project Artifacts to Vercel
-        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel deploy --prebuilt --prod 
+          --token=${{ secrets.VERCEL_TOKEN }}
 </code>
 </div><br>
 

@@ -1,6 +1,6 @@
 ---
 title: 'Side Project?'
-date: '01-01-25T06:10'
+date: '01-01-25 - 06:10AM'
 description: 'Some ideas for a new project'
 ---
 

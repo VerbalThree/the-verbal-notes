@@ -4,9 +4,9 @@ import "@/style/globals.css";
 import Link from "next/link";
 
 const primary_font = Courier_Prime({
-    weight: "400",
-    subsets: ["latin"],
-})
+  weight: "400",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "the verbal notes",
@@ -18,13 +18,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  
   const title = String.raw`           
 | |_| |_ ___    _ _ ___ ___| |_ ___| |   ___ ___| |_ ___ ___ 
 |  _|   | -_|  | | | -_|  _| . | .'| |  |   | . |  _| -_|_ -|
 |_| |_|_|___|   \_/|___|_| |___|__,|_|  |_|_|___|_| |___|___|
         `;
-  
+
   const title_mobile = String.raw`               
   _/_/_ _     _  _/_ _  /
   / / //_' |//_'//_//_|/ 
@@ -35,34 +34,43 @@ export default function RootLayout({
   return (
     <html className="overflow-x-hidden lg:overflow-auto" lang="en">
       <head>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
       </head>
-      <body
-        className={primary_font.className}>
-          
+      <body className={primary_font.className}>
         <div className="mt-[5px] ml-[1rem] mr-[1rem] mb-[2rem]">
           <div className="w-[14.3em] md:w-[34.7em]">
-        <Link href="/">
-        <h1 className="w-[13.3em] md:w-[34rem]">
-          <pre className="hidden sm:block" id="pre">
-            {title}
-          </pre>
-          <pre className="w-[14rem] sm:hidden" id="pre">
-            {title_mobile}
-          </pre>
-        </h1>
-        </Link>
+            <Link href="/">
+              <h1 className="w-[13.3em] md:w-[34rem]">
+                <pre className="hidden sm:block" id="pre">
+                  {title}
+                </pre>
+                <pre className="w-[14rem] sm:hidden" id="pre">
+                  {title_mobile}
+                </pre>
+              </h1>
+            </Link>
+          </div>
+          <div className="w-xl">
+            <h6 className="w-2xs" id="sub">
+              <Link href="https://github.com/VerbalThree/verbal-notes">
+                <b className="source">[get the source code]</b>
+              </Link>{" "}
+              - v1.0.3
+            </h6>
+          </div>
         </div>
-        <div className="w-xl">
-        
-        <h6 className="w-2xs" id="sub"><Link href="https://github.com/VerbalThree/verbal-notes"><b className="source">[get the source code]</b></Link> - v1.0.2</h6>
 
-
-        </div>
-        </div>
-        
         {children}
-        <h6 className="flex justify-center items-center mt-[1rem] mb-[1rem]">since 2025, created by <Link href="https://github.com/VerbalThree" className="verbal"> verbal</Link></h6>
+        <h6 className="flex justify-center items-center mt-[1rem] mb-[1rem]">
+          since 2025, created by{" "}
+          <Link href="https://github.com/VerbalThree" className="verbal">
+            {" "}
+            verbal
+          </Link>
+        </h6>
       </body>
     </html>
   );

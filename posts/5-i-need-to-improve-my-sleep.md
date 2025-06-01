@@ -1,6 +1,6 @@
 ---
 title: 'I Need to Improve my Sleep'
-date: '01-02-25T06:10'
+date: '01-02-25 - 06:10AM'
 description: 'Talking about some sleep problems of mine'
 ---
 
